@@ -36,7 +36,7 @@ const OnboardingPage = () => {
           <View>
             <Text style={styles.headerText}>Athena</Text>
             <Text style={styles.subtext}>
-              A.I Tutor for every child
+              A.I Tutor for every Child ee
             </Text>
           </View>
           <View style={styles.InputAndButtonsWrapper}>

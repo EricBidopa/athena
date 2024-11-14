@@ -2,47 +2,10 @@ import { StyleSheet, Text, View, TextInput, Pressable } from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 
-
-const OtpPage = ({route}) => {
-    const navigation = useNavigation();
-    const {email} = route.params;
-  const [otpCode, setOtpCode] = useState("");
-  const [isFocused, setIsFocused] = useState(false);
-  const[isEmpty, setIsEmpty] = useState(true)
-
-
-
-  const handleVerifyBtnClicked =() => {
-    navigation.navigate("SignupPage")
-  };
-
-
+const AllStudentsPage = () => {
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
-        <Text style={styles.headerText}>OdeoPod</Text>
-        <Text style={styles.subtext}>Choose A Username:</Text>
-        <View
-          style={[
-            styles.searchContainer,
-            isFocused && styles.searchContainerFocused,
-          ]}
-        >
-          <TextInput
-            style={styles.searchInput}
-            placeholder="Enter OTP Code Sent to Email"
-            placeholderTextColor="gray"
-            onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
-            value={otpCode}
-            onChangeText={(text) => {
-              const formattedText = text.replace(/\s/g, ""); // Convert to lowercase and remove spaces
-              setOtpCode(formattedText);
-              setIsEmpty(false)
-            }}
-          />
-        </View>
-        <Text>{email}</Text>
         <Pressable style={styles.buttons} onPress={handleVerifyBtnClicked} disabled={isEmpty}>
           <Text>Verify Code</Text>
         </Pressable>
@@ -51,7 +14,8 @@ const OtpPage = ({route}) => {
   );
 };
 
-export default OtpPage;
+export default AllStudentsPage;
+
 
 const styles = StyleSheet.create({
   container: {

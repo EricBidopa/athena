@@ -10,6 +10,8 @@ import { StyleSheet } from "react-native";
 import OnboardingPage from "../OnboardingScreen/OnboardingPage";
 import HomePage from "../HomeScreen/HomePage";
 import OtpPage from "../OnboardingScreen/OtpPage";
+import SignupPage from "../OnboardingScreen/SignupPage";
+import AllStudentsPage from "../OnboardingScreen/AllStudentsPage";
 
 const Bottomnav = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -58,19 +60,29 @@ export default function AppNavigator() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="OnboardingPage">
         <Stack.Screen
+          name="HomePage"
+          component={BottomNavigationGroup}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
           name="OnboardingPage"
           component={OnboardingPage}
           options={{ headerShown: false }}
         />
         <Stack.Screen
-          name="HomePage"
-          component={BottomNavigationGroup}
+          name="SignupPage"
+          component={SignupPage}
           options={{ headerShown: false }}
         />
         
       <Stack.Screen
           name="OtpPage"
           component={OtpPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="AllStudentsPage"
+          component={AllStudentsPage}
           options={{ headerShown: false }}
         />
         
