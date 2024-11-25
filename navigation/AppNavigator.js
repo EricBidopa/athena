@@ -48,7 +48,7 @@ function BottomNavigationGroup() {
         component={HomePage}
         options={{ headerShown: true, title: 'Explore' }}
       />
-      <Bottomnav.Screen name="Subscriptions" component={HomePage} />
+      {/* <Bottomnav.Screen name="Subscriptions" component={HomePage} /> */}
       <Bottomnav.Screen name="Profile" component={ProfilePage} />
     </Bottomnav.Navigator>
   );
