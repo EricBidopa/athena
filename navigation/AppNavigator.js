@@ -12,6 +12,7 @@ import HomePage from "../HomeScreen/HomePage";
 import OtpPage from "../OnboardingScreen/OtpPage";
 import SignupPage from "../OnboardingScreen/SignupPage";
 import AllStudentsPage from "../OnboardingScreen/AllStudentsPage";
+import ProfilePage from "../ProfileScreen/ProfilePage";
 
 const Bottomnav = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -47,10 +48,8 @@ function BottomNavigationGroup() {
         component={HomePage}
         options={{ headerShown: true, title: 'Explore' }}
       />
-      <Bottomnav.Screen name="Search" component={HomePage} />
       <Bottomnav.Screen name="Subscriptions" component={HomePage} />
-      <Bottomnav.Screen name="Wallet" component={HomePage} />
-      <Bottomnav.Screen name="Profile" component={HomePage} />
+      <Bottomnav.Screen name="Profile" component={ProfilePage} />
     </Bottomnav.Navigator>
   );
 }

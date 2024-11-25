@@ -3,9 +3,12 @@ import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 
 const AllStudentsPage = () => {
+
   const [isEmpty, setIsEmpty] = useState(false)
+
+  const navigation = useNavigation()
   const handleVerifyBtnClicked =()=>{
-    console.log("This is it we are in")
+    navigation.navigate("HomePage")
   }
   return (
     <View style={styles.container}>
