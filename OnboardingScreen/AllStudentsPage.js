@@ -3,11 +3,15 @@ import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 
 const AllStudentsPage = () => {
+  const [isEmpty, setIsEmpty] = useState(false)
+  const handleVerifyBtnClicked =()=>{
+    console.log("This is it we are in")
+  }
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
         <Pressable style={styles.buttons} onPress={handleVerifyBtnClicked} disabled={isEmpty}>
-          <Text>Verify Code</Text>
+          <Text>This is what we don't know for now</Text>
         </Pressable>
       </View>
     </View>
