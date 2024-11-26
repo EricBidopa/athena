@@ -13,6 +13,7 @@ import OtpPage from "../OnboardingScreen/OtpPage";
 import SignupPage from "../OnboardingScreen/SignupPage";
 import AllStudentsPage from "../OnboardingScreen/AllStudentsPage";
 import ProfilePage from "../ProfileScreen/ProfilePage";
+import SpellingLessonsPage from "../SpellingLessons/SpellingLessonsPage";
 
 const Bottomnav = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -71,6 +72,11 @@ export default function AppNavigator() {
         <Stack.Screen
           name="SignupPage"
           component={SignupPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SpellingLessonsPage"
+          component={SpellingLessonsPage}
           options={{ headerShown: false }}
         />
         

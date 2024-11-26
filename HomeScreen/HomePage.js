@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, FlatList, Pressable } from 'react-native';
 import React, { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const HomePage = () => {
   const [featuredLessons, setFeaturedLessons] = useState([
@@ -8,6 +9,7 @@ const HomePage = () => {
     // { lessonName: 'That Lessons', id: '2' },
     
   ]);
+  const navigation = useNavigation()
 
   return (
     <View style={styles.container}>
@@ -16,7 +18,7 @@ const HomePage = () => {
         keyExtractor={(item) => item.id}
         data={featuredLessons}
         renderItem={({ item }) => (
-          <Pressable style={styles.lessonItem}>
+          <Pressable style={styles.lessonItem} onPress={()=>navigation.navigate("SpellingLessonsPage")}>
             <Text style={styles.lessonText}>{item.lessonName}</Text>
           </Pressable>
         )}
