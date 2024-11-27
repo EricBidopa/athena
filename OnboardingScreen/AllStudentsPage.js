@@ -1,75 +1,103 @@
-import { StyleSheet, Text, View, TextInput, Pressable } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Pressable,
+  SafeAreaView,
+  ScrollView,
+} from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import StudentItem from "./StudentItem";
 
 const AllStudentsPage = () => {
+  const [isEmpty, setIsEmpty] = useState(false);
 
-  const [isEmpty, setIsEmpty] = useState(false)
-
-  const navigation = useNavigation()
-  const handleVerifyBtnClicked =()=>{
-    navigation.navigate("HomePage")
+  const navigation = useNavigation();
+  const handleAddNewStudentBtnPressed =()=>{
+    navigation.navigate("AddStudentPage")
   }
+
   return (
-    <View style={styles.container}>
-      <View style={styles.wrapper}>
-        <Pressable style={styles.buttons} onPress={handleVerifyBtnClicked} disabled={isEmpty}>
-          <Text>This is what we don't know for now</Text>
-        </Pressable>
-      </View>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.allStudentsWrapper}>
+        <Text style={styles.allStudentsTitle}>Who's Learning?</Text>
+        <View style={styles.allStudentsItemsWrapper}>
+          <StudentItem />
+          <StudentItem />
+          <StudentItem />
+        </View>
+        <View style={styles.allStudentsOtherItems}>
+          <Pressable
+            style={styles.addStudentBtn}
+            onPress={handleAddNewStudentBtnPressed}
+            disabled={isEmpty}
+          >
+            <Text style={styles.addStudentBtnText}>Add New Student</Text>
+          </Pressable>
+          <Pressable>
+            <Text style={styles.logoutBtnText}>Log out</Text>
+          </Pressable>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
 export default AllStudentsPage;
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "blue",
+    backgroundColor: "white",
     paddingHorizontal: "10%",
     paddingTop: "12%",
-    justifyContent: "center", // Center content vertically
   },
-  wrapper: {
-    backgroundColor: "pink",
+  allStudentsWrapper: {
     width: "100%",
-    height: "100%",
-    display: "flex",
     flexDirection: "column",
+    // backgroundColor: "blue"
   },
-  headerText: {
+  allStudentsTitle: {
+    fontSize: 20,
     fontWeight: "bold",
-    fontSize: 30,
-    alignSelf: "center",
-    marginBottom: "7%",
+    marginBottom: 15,
+    textAlign: "center",
   },
-  searchContainer: {
+  allStudentsItemsWrapper: {
     flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    marginBottom: 20,
+  },
+  allStudentsOtherItems: {
+    flexDirection: "column",
     alignItems: "center",
-    backgroundColor: "#f0f0f0",
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderWidth: 1,
-    borderColor: "#f0f0f0",
-    marginVertical: 15,
+    marginBottom: 30,
   },
-  searchContainerFocused: {
-    borderColor: "black", // Focused border color
-    borderWidth: 1.5,
-  },
-  searchInput: {
-    flex: 1,
-    fontSize: 15,
-  },
-  buttons: {
+  addStudentBtn: {
     padding: 17,
     borderColor: "black",
     borderWidth: 1,
     alignItems: "center",
     borderRadius: 10,
     marginVertical: 10,
+  },
+  addStudentBtnText: {
+    fontSize: 14,
+    fontWeight: "600",
+  },
+  logoutBtn: {
+    padding: 17,
+    borderColor: "red",
+    borderWidth: 1,
+    alignItems: "center",
+    borderRadius: 10,
+  },
+  logoutBtnText: {
+    fontSize: 16,
+    color: "red",
+    fontWeight: "600",
   },
 });

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, Pressable } from "react-native";
+import { StyleSheet, Text, View, TextInput, Pressable, SafeAreaView } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
@@ -12,11 +12,11 @@ const SignupPage = () => {
   const [isEmpty, setIsEmpty] = useState(true);
 
   const handleContinueBtnClicked = () => {
-    navigation.navigate("AllStudentsPage");
+    navigation.navigate("AddStudentPage");
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.wrapper}>
         <Text style={styles.headerText}>Athena</Text>
         <Text style={styles.subtext}>Adult Full Name:</Text>
@@ -67,7 +67,7 @@ const SignupPage = () => {
           <Text>Continue</Text>
         </Pressable>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

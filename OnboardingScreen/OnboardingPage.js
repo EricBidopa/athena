@@ -1,4 +1,4 @@
-import { View, Text, Pressable, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView, Platform } from "react-native";
+import { View, Text, Pressable, StyleSheet, TextInput, KeyboardAvoidingView, ScrollView, Platform, SafeAreaView } from "react-native";
 import React from "react";
 
 // import Constants from "expo-constants";

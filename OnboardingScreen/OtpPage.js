@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, Pressable } from "react-native";
+import { StyleSheet, Text, View, TextInput, Pressable, SafeAreaView } from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 
@@ -18,7 +18,7 @@ const OtpPage = ({route}) => {
 
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.wrapper}>
         <Text style={styles.headerText}>OdeoPod</Text>
         <Text style={styles.subtext}>Choose A Username:</Text>
@@ -47,7 +47,7 @@ const OtpPage = ({route}) => {
           <Text>Verify Code</Text>
         </Pressable>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
